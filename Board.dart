@@ -21,7 +21,7 @@ class Board {
     height = canvas.height;
     border();
     createPlane();
-    createLazer();
+    createLazer(jean);
     createCloud();
     createJean();
     document.window.setInterval(redraw, 3);
@@ -39,17 +39,17 @@ class Board {
   
   void createCloud() {
     cloud1 = new Cloud(this, 100, 0, 70, 70);
-    cloud2 = new Cloud(this, 500, 0, 70, 70);
-    cloud3 = new Cloud(this, 800, 0, 70, 70);
-    cloud4 = new Cloud(this, 200, 0, 70, 70);
+    cloud2 = new Cloud(this, 500, -293, 70, 70);
+    cloud3 = new Cloud(this, 800, -90, 70, 70);
+    cloud4 = new Cloud(this, 200, -170, 70, 70);
   }
   
   void createPlane() {
     plane1 = new Plane(this, 350, 100, 50, 50);
   }
   
-  void createLazer() {
-    lazer = new Lazer(this, 20, 20, 3, 50);  
+  void createLazer(Jean jean) {
+    lazer = new Lazer(this, 20, 20, 3, 50, jean);  
   }
   
   void createJean() {

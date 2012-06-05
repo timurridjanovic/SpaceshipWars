@@ -6,9 +6,9 @@ class Cloud {
   int y;
   int width;
   int height;
-  double random;
+  int random;
   
-  bool direction = true;
+  bool reappear = true;
   ImageElement imageData2;
   
   Cloud(this.board, this.x, this.y, this.width, this.height) {
@@ -19,7 +19,7 @@ class Cloud {
   
   void moveCloud() {
     y++;
-    random = (Math.random()*900);
+    random = (Math.random()*900).toInt();
     //if (y <= 0) {
      // direction = true;
    // }
@@ -32,11 +32,14 @@ class Cloud {
    // else 
     //  y--;
     if (y >= board.height) {
-      direction = true;
+      reappear = true;
+    } else {
+      reappear = false;
+    }
       
-    if (direction)
-      y=0;
-      x=random;
+    if (reappear) {
+      y= -random;
+      x= random;
     }
   drawCloud();
   }
