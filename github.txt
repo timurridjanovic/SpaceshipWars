@@ -24,7 +24,7 @@ git rm file
 or
 git add -u (to remove all)
 
-git commit -m "state briefly changes"
+git commit -m 'state briefly changes'
 
 git status
 
