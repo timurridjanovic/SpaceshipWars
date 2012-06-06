@@ -27,6 +27,6 @@ class Plane {
   void onMouseMove(MouseEvent event) {
     x = event.offsetX;
     y = event.offsetY;
-    
   }
+  
 }

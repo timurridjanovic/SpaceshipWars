@@ -1,0 +1,43 @@
+SpaceshipWars
+
+https://github.com/timurridjanovic/SpaceshipWars
+
+Read:
+git://github.com/timurridjanovic/SpaceshipWars.git
+
+Read + Write:
+git@github.com:timurridjanovic/SpaceshipWars.git
+?
+https://github.com/timurridjanovic/SpaceshipWars.git
+?
+
+
+Work with a local repository
+
+cd ...
+
+git add .
+or
+git add file
+
+git rm file
+or
+git add -u (to remove all)
+
+git commit -m "state briefly changes"
+
+git status
+
+git push
+or
+git push origin master
+
+git status
+
+Get the latest changes from the remote repository
+
+git pull
+or
+git pull origin master
+
+

@@ -11,26 +11,15 @@ class Cloud {
   bool reappear = true;
   ImageElement imageData2;
   
-  Cloud(this.board, this.x, this.y, this.width, this.height) {
-    
+  Cloud(this.board, this.x, this.y, this.width, this.height) {  
     imageData2 = document.query('#cloud');
-    document.window.setInterval(moveCloud, 3);
+    document.window.setInterval(move, 4);
   }
   
-  void moveCloud() {
-    y++;
-    random = (Math.random()*900).toInt();
-    //if (y <= 0) {
-     // direction = true;
-   // }
-   // else if (y >= board.height - height) {
-    //  direction = false;
-   // }
-    
-   // if (direction)
-   //   y++;
-   // else 
-    //  y--;
+  void move() {
+    y = y + 2;
+    random = (Math.random() * 900).toInt();
+  
     if (y >= board.height) {
       reappear = true;
     } else {
@@ -38,13 +27,14 @@ class Cloud {
     }
       
     if (reappear) {
-      y= -random;
-      x= random;
+      y = -random;
+      x = random;
     }
-  drawCloud();
+    
+    draw();
   }
   
-  void drawCloud() {
+  void draw() {
     board.context.beginPath();
     board.context.fillStyle = "white";   
     board.context.drawImage(imageData2, x, y, width, height);

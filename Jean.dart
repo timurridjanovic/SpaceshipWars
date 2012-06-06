@@ -14,26 +14,16 @@ Board board;
   ImageElement imageData4;
   
   Jean(this.board, this.x, this.y, this.width, this.height) {
-    imageData4 = document.query('#explosion');
     imageData3 = document.query('#jean');
-    document.window.setInterval(moveJean, 3);
+    imageData4 = document.query('#explosion');
+    document.window.setInterval(move, 4);
   }
   
-  void moveJean() {
-    y++;
-    x++;
+  void move() {
+    y = y + 2;
+    x = x + 2;
     random2 = (Math.random()*900).toInt();
-    //if (y <= 0) {
-     // direction = true;
-   // }
-   // else if (y >= board.height - height) {
-    //  direction = false;
-   // }
-    
-   // if (direction)
-   //   y++;
-   // else 
-    //  y--;
+ 
     if (y >= board.height) {
       reappear = true;
     } else {
@@ -45,10 +35,11 @@ Board board;
       y = random2;
       x = random2;
     }
-  drawJean();
+    
+    draw();
   }
   
-  void drawJean() {
+  void draw() {
     board.context.beginPath();
     if (visible) {
       board.context.drawImage(imageData3, x, y, width, height);  
@@ -58,4 +49,5 @@ Board board;
     board.context.closePath();
     board.context.stroke();
   }
+  
 }
