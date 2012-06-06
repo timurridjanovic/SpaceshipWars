@@ -1,0 +1,15 @@
+PROCESSORS:
+com.google.indexer.processor.dart 1 .dart
+- com.google.indexer.contributor.dart.elementsByCategory 1
+- com.google.indexer.contributor.dart.fieldReferences 1
+- com.google.indexer.contributor.dart.functionReferences 1
+- com.google.indexer.contributor.dart.methodOverride 1
+- com.google.indexer.contributor.dart.typeHierarchy 1
+- com.google.indexer.contributor.dart.typeReferences 1
+LAYERS:
+- com.google.indexer.layer.dart.elementsByCategory
+- com.google.indexer.layer.dart.fieldReferences
+- com.google.indexer.layer.dart.functionReferences
+- com.google.indexer.layer.dart.methodOverride
+- com.google.indexer.layer.dart.typeHierarchy
+- com.google.indexer.layer.dart.typeReferences
