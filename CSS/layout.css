@@ -10,11 +10,11 @@
   Updated:                 2011-12-22
 */
 
-  header {
+  .whitebox {
     color: #000000;
     background: #FFFFFF;
     /*padding: 4px;*/
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 20px;
     border-top-left-radius: 50px 50px;
     border-bottom-right-radius: 50px 50px;

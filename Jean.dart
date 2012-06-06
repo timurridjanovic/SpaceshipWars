@@ -32,7 +32,7 @@ Board board;
       
     if (reappear) {
       visible = true;
-      y = random2;
+      y = -random2;
       x = random2;
     }
     

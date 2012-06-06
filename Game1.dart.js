@@ -59623,16 +59623,16 @@ unnamed4e83dc$Board$Dart.$lookupRTT = function(typeArgs, named){
 }
 ;
 unnamed4e83dc$Board$Dart.$Constructor = function(canvas){
-  var tmp$1, tmp$2, tmp$0;
+  var tmp$5, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
   this.context$setter(tmp$0 = canvas.getContext$named(1, $noargs, '2d')) , tmp$0;
   this.width$setter(tmp$1 = canvas.width$getter()) , tmp$1;
   this.height$setter(tmp$2 = canvas.height$getter()) , tmp$2;
   this.border$member();
-  this.createPlane$member();
-  this.createLazer$member(this.jean$getter());
-  this.createCloud$member();
-  this.createJean$member();
-  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Board$Dart.prototype.redraw$named, unnamed4e83dc$Board$Dart.prototype.redraw$named_$lookupRTT, this), 3);
+  this.createClouds$member();
+  this.plane$setter(tmp$3 = this.createPlane$member()) , tmp$3;
+  this.jean$setter(tmp$4 = this.createJean$member()) , tmp$4;
+  this.lazer$setter(tmp$5 = this.createLazer$member()) , tmp$5;
+  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Board$Dart.prototype.redraw$named, unnamed4e83dc$Board$Dart.prototype.redraw$named_$lookupRTT, this), 4);
 }
 ;
 unnamed4e83dc$Board$Dart.$Initializer = function(canvas){
@@ -59680,22 +59680,6 @@ unnamed4e83dc$Board$Dart.prototype.height$setter = function(tmp$0){
   this.height$field = tmp$0;
 }
 ;
-unnamed4e83dc$Board$Dart.prototype.plane1$getter = function(){
-  return this.plane1$field;
-}
-;
-unnamed4e83dc$Board$Dart.prototype.plane1$setter = function(tmp$0){
-  this.plane1$field = tmp$0;
-}
-;
-unnamed4e83dc$Board$Dart.prototype.lazer$getter = function(){
-  return this.lazer$field;
-}
-;
-unnamed4e83dc$Board$Dart.prototype.lazer$setter = function(tmp$0){
-  this.lazer$field = tmp$0;
-}
-;
 unnamed4e83dc$Board$Dart.prototype.cloud1$getter = function(){
   return this.cloud1$field;
 }
@@ -59728,12 +59712,44 @@ unnamed4e83dc$Board$Dart.prototype.cloud4$setter = function(tmp$0){
   this.cloud4$field = tmp$0;
 }
 ;
+unnamed4e83dc$Board$Dart.prototype.cloud5$getter = function(){
+  return this.cloud5$field;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.cloud5$setter = function(tmp$0){
+  this.cloud5$field = tmp$0;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.cloud6$getter = function(){
+  return this.cloud6$field;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.cloud6$setter = function(tmp$0){
+  this.cloud6$field = tmp$0;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.plane$getter = function(){
+  return this.plane$field;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.plane$setter = function(tmp$0){
+  this.plane$field = tmp$0;
+}
+;
 unnamed4e83dc$Board$Dart.prototype.jean$getter = function(){
   return this.jean$field;
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.jean$setter = function(tmp$0){
   this.jean$field = tmp$0;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.lazer$getter = function(){
+  return this.lazer$field;
+}
+;
+unnamed4e83dc$Board$Dart.prototype.lazer$setter = function(tmp$0){
+  this.lazer$field = tmp$0;
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.context$getter = function(){
@@ -59754,38 +59770,43 @@ unnamed4e83dc$Board$Dart.prototype.border$member = function(){
   this.context$getter().stroke$named(0, $noargs);
 }
 ;
-unnamed4e83dc$Board$Dart.prototype.createCloud$member = function(){
-  var tmp$1, tmp$2, tmp$3, tmp$0;
-  this.cloud1$setter(tmp$0 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 100, 0, 70, 70)) , tmp$0;
-  this.cloud2$setter(tmp$1 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 500, negate$operator(293), 70, 70)) , tmp$1;
+unnamed4e83dc$Board$Dart.prototype.createClouds$member = function(){
+  var tmp$5, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
+  this.cloud1$setter(tmp$0 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 100, negate$operator(20), 70, 70)) , tmp$0;
+  this.cloud2$setter(tmp$1 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 600, negate$operator(293), 70, 70)) , tmp$1;
   this.cloud3$setter(tmp$2 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 800, negate$operator(90), 70, 70)) , tmp$2;
-  this.cloud4$setter(tmp$3 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 200, negate$operator(170), 70, 70)) , tmp$3;
+  this.cloud4$setter(tmp$3 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 500, negate$operator(170), 70, 70)) , tmp$3;
+  this.cloud5$setter(tmp$4 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 700, negate$operator(240), 70, 70)) , tmp$4;
+  this.cloud6$setter(tmp$5 = unnamed4e83dc$Cloud$Dart.Cloud$$Factory(this, 300, negate$operator(350), 70, 70)) , tmp$5;
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.createPlane$member = function(){
-  var tmp$0;
-  this.plane1$setter(tmp$0 = unnamed4e83dc$Plane$Dart.Plane$$Factory(this, 350, 100, 50, 50)) , tmp$0;
+  return unnamed4e83dc$Plane$Dart.Plane$$Factory(this, 350, 100, 50, 50);
 }
 ;
-unnamed4e83dc$Board$Dart.prototype.createLazer$member = function(jean){
-  var tmp$0;
-  this.lazer$setter(tmp$0 = unnamed4e83dc$Lazer$Dart.Lazer$$Factory(this, 20, 20, 3, 50, jean)) , tmp$0;
+unnamed4e83dc$Board$Dart.prototype.createLazer$member = function(){
+  return unnamed4e83dc$Lazer$Dart.Lazer$$Factory(this, 20, 20, 3, 50, this.jean$getter());
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.createJean$member = function(){
-  var tmp$0;
-  this.jean$setter(tmp$0 = unnamed4e83dc$Jean$Dart.Jean$$Factory(this, 100, 100, 80, 80)) , tmp$0;
+  return unnamed4e83dc$Jean$Dart.Jean$$Factory(this, 100, 100, 80, 80);
+}
+;
+unnamed4e83dc$Board$Dart.prototype.drawClouds$member = function(){
+  this.cloud1$getter().draw$named(0, $noargs);
+  this.cloud2$getter().draw$named(0, $noargs);
+  this.cloud3$getter().draw$named(0, $noargs);
+  this.cloud4$getter().draw$named(0, $noargs);
+  this.cloud5$getter().draw$named(0, $noargs);
+  this.cloud6$getter().draw$named(0, $noargs);
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.redraw$member = function(){
   this.clear$member();
-  this.plane1$getter().draw$named(0, $noargs);
-  this.lazer$getter().drawLazer$named(0, $noargs);
-  this.cloud1$getter().drawCloud$named(0, $noargs);
-  this.cloud2$getter().drawCloud$named(0, $noargs);
-  this.cloud3$getter().drawCloud$named(0, $noargs);
-  this.cloud4$getter().drawCloud$named(0, $noargs);
-  this.jean$getter().drawJean$named(0, $noargs);
+  this.drawClouds$member();
+  this.plane$getter().draw$named(0, $noargs);
+  this.jean$getter().draw$named(0, $noargs);
+  this.lazer$getter().draw$named(0, $noargs);
 }
 ;
 unnamed4e83dc$Board$Dart.prototype.redraw$named = function($n, $o){
@@ -59826,7 +59847,7 @@ unnamed4e83dc$Cloud$Dart.$lookupRTT = function(typeArgs, named){
 unnamed4e83dc$Cloud$Dart.$Constructor = function(board, x, y, width, height){
   var tmp$0;
   this.imageData2$setter(tmp$0 = htmld071c1$document$getter().query$named(1, $noargs, '#cloud')) , tmp$0;
-  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Cloud$Dart.prototype.moveCloud$named, unnamed4e83dc$Cloud$Dart.prototype.moveCloud$named_$lookupRTT, this), 3);
+  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Cloud$Dart.prototype.move$named, unnamed4e83dc$Cloud$Dart.prototype.move$named_$lookupRTT, this), 4);
 }
 ;
 unnamed4e83dc$Cloud$Dart.$Initializer = function(board, x, y, width, height){
@@ -59906,34 +59927,34 @@ unnamed4e83dc$Cloud$Dart.prototype.imageData2$setter = function(tmp$0){
   this.imageData2$field = tmp$0;
 }
 ;
-unnamed4e83dc$Cloud$Dart.prototype.moveCloud$member = function(){
-  var tmp$5, tmp$6, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
-  tmp$0 = this.y$getter() , (this.y$setter(tmp$1 = ADD$operator(tmp$0, 1)) , tmp$1 , tmp$0);
-  this.random$setter(tmp$2 = MUL$operator(Math$Dart.random$member(), 900).toInt$named(0, $noargs)) , tmp$2;
+unnamed4e83dc$Cloud$Dart.prototype.move$member = function(){
+  var tmp$5, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
+  this.y$setter(tmp$0 = ADD$operator(this.y$getter(), 2)) , tmp$0;
+  this.random$setter(tmp$1 = MUL$operator(Math$Dart.random$member(), 900).toInt$named(0, $noargs)) , tmp$1;
   if (GTE$operator(this.y$getter(), this.board$getter().height$getter())) {
-    this.reappear$setter(tmp$3 = true) , tmp$3;
+    this.reappear$setter(tmp$2 = true) , tmp$2;
   }
    else {
-    this.reappear$setter(tmp$4 = false) , tmp$4;
+    this.reappear$setter(tmp$3 = false) , tmp$3;
   }
   if (this.reappear$getter()) {
-    this.y$setter(tmp$5 = negate$operator(this.random$getter())) , tmp$5;
-    this.x$setter(tmp$6 = this.random$getter()) , tmp$6;
+    this.y$setter(tmp$4 = negate$operator(this.random$getter())) , tmp$4;
+    this.x$setter(tmp$5 = this.random$getter()) , tmp$5;
   }
-  this.drawCloud$member();
+  this.draw$member();
 }
 ;
-unnamed4e83dc$Cloud$Dart.prototype.moveCloud$named = function($n, $o){
+unnamed4e83dc$Cloud$Dart.prototype.move$named = function($n, $o){
   if ($o.count || $n != 0)
     $nsme();
-  return unnamed4e83dc$Cloud$Dart.prototype.moveCloud$member.call(this);
+  return unnamed4e83dc$Cloud$Dart.prototype.move$member.call(this);
 }
 ;
-unnamed4e83dc$Cloud$Dart.prototype.moveCloud$named_$lookupRTT = function(){
+unnamed4e83dc$Cloud$Dart.prototype.move$named_$lookupRTT = function(){
   return RTT.createFunction(null, RTT.dynamicType.$lookupRTT());
 }
 ;
-unnamed4e83dc$Cloud$Dart.prototype.drawCloud$member = function(){
+unnamed4e83dc$Cloud$Dart.prototype.draw$member = function(){
   var tmp$0;
   this.board$getter().context$getter().beginPath$named(0, $noargs);
   this.board$getter().context$getter().fillStyle$setter(tmp$0 = 'white') , tmp$0;
@@ -59942,10 +59963,10 @@ unnamed4e83dc$Cloud$Dart.prototype.drawCloud$member = function(){
   this.board$getter().context$getter().stroke$named(0, $noargs);
 }
 ;
-unnamed4e83dc$Cloud$Dart.prototype.drawCloud$named = function($n, $o){
+unnamed4e83dc$Cloud$Dart.prototype.draw$named = function($n, $o){
   if ($o.count || $n != 0)
     $nsme();
-  return unnamed4e83dc$Cloud$Dart.prototype.drawCloud$member.call(this);
+  return unnamed4e83dc$Cloud$Dart.prototype.draw$member.call(this);
 }
 ;
 function unnamed4e83dc$main$member(){
@@ -59960,9 +59981,9 @@ unnamed4e83dc$Jean$Dart.$lookupRTT = function(typeArgs, named){
 ;
 unnamed4e83dc$Jean$Dart.$Constructor = function(board, x, y, width, height){
   var tmp$1, tmp$0;
-  this.imageData4$setter(tmp$0 = htmld071c1$document$getter().query$named(1, $noargs, '#explosion')) , tmp$0;
-  this.imageData3$setter(tmp$1 = htmld071c1$document$getter().query$named(1, $noargs, '#jean')) , tmp$1;
-  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Jean$Dart.prototype.moveJean$named, unnamed4e83dc$Jean$Dart.prototype.moveJean$named_$lookupRTT, this), 3);
+  this.imageData3$setter(tmp$0 = htmld071c1$document$getter().query$named(1, $noargs, '#jean')) , tmp$0;
+  this.imageData4$setter(tmp$1 = htmld071c1$document$getter().query$named(1, $noargs, '#explosion')) , tmp$1;
+  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Jean$Dart.prototype.move$named, unnamed4e83dc$Jean$Dart.prototype.move$named_$lookupRTT, this), 4);
 }
 ;
 unnamed4e83dc$Jean$Dart.$Initializer = function(board, x, y, width, height){
@@ -60059,36 +60080,36 @@ unnamed4e83dc$Jean$Dart.prototype.imageData4$setter = function(tmp$0){
   this.imageData4$field = tmp$0;
 }
 ;
-unnamed4e83dc$Jean$Dart.prototype.moveJean$member = function(){
-  var tmp$9, tmp$5, tmp$6, tmp$7, tmp$8, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
-  tmp$0 = this.y$getter() , (this.y$setter(tmp$1 = ADD$operator(tmp$0, 1)) , tmp$1 , tmp$0);
-  tmp$2 = this.x$getter() , (this.x$setter(tmp$3 = ADD$operator(tmp$2, 1)) , tmp$3 , tmp$2);
-  this.random2$setter(tmp$4 = MUL$operator(Math$Dart.random$member(), 900).toInt$named(0, $noargs)) , tmp$4;
+unnamed4e83dc$Jean$Dart.prototype.move$member = function(){
+  var tmp$5, tmp$6, tmp$7, tmp$1, tmp$2, tmp$3, tmp$4, tmp$0;
+  this.y$setter(tmp$0 = ADD$operator(this.y$getter(), 2)) , tmp$0;
+  this.x$setter(tmp$1 = ADD$operator(this.x$getter(), 2)) , tmp$1;
+  this.random2$setter(tmp$2 = MUL$operator(Math$Dart.random$member(), 900).toInt$named(0, $noargs)) , tmp$2;
   if (GTE$operator(this.y$getter(), this.board$getter().height$getter())) {
-    this.reappear$setter(tmp$5 = true) , tmp$5;
+    this.reappear$setter(tmp$3 = true) , tmp$3;
   }
    else {
-    this.reappear$setter(tmp$6 = false) , tmp$6;
+    this.reappear$setter(tmp$4 = false) , tmp$4;
   }
   if (this.reappear$getter()) {
-    this.visible$setter(tmp$7 = true) , tmp$7;
-    this.y$setter(tmp$8 = this.random2$getter()) , tmp$8;
-    this.x$setter(tmp$9 = this.random2$getter()) , tmp$9;
+    this.visible$setter(tmp$5 = true) , tmp$5;
+    this.y$setter(tmp$6 = negate$operator(this.random2$getter())) , tmp$6;
+    this.x$setter(tmp$7 = this.random2$getter()) , tmp$7;
   }
-  this.drawJean$member();
+  this.draw$member();
 }
 ;
-unnamed4e83dc$Jean$Dart.prototype.moveJean$named = function($n, $o){
+unnamed4e83dc$Jean$Dart.prototype.move$named = function($n, $o){
   if ($o.count || $n != 0)
     $nsme();
-  return unnamed4e83dc$Jean$Dart.prototype.moveJean$member.call(this);
+  return unnamed4e83dc$Jean$Dart.prototype.move$member.call(this);
 }
 ;
-unnamed4e83dc$Jean$Dart.prototype.moveJean$named_$lookupRTT = function(){
+unnamed4e83dc$Jean$Dart.prototype.move$named_$lookupRTT = function(){
   return RTT.createFunction(null, RTT.dynamicType.$lookupRTT());
 }
 ;
-unnamed4e83dc$Jean$Dart.prototype.drawJean$member = function(){
+unnamed4e83dc$Jean$Dart.prototype.draw$member = function(){
   this.board$getter().context$getter().beginPath$named(0, $noargs);
   if (this.visible$getter()) {
     this.board$getter().context$getter().drawImage$named(5, $noargs, this.imageData3$getter(), this.x$getter(), this.y$getter(), this.width$getter(), this.height$getter());
@@ -60100,10 +60121,10 @@ unnamed4e83dc$Jean$Dart.prototype.drawJean$member = function(){
   this.board$getter().context$getter().stroke$named(0, $noargs);
 }
 ;
-unnamed4e83dc$Jean$Dart.prototype.drawJean$named = function($n, $o){
+unnamed4e83dc$Jean$Dart.prototype.draw$named = function($n, $o){
   if ($o.count || $n != 0)
     $nsme();
-  return unnamed4e83dc$Jean$Dart.prototype.drawJean$member.call(this);
+  return unnamed4e83dc$Jean$Dart.prototype.draw$member.call(this);
 }
 ;
 function unnamed4e83dc$Lazer$Dart(){
@@ -60114,6 +60135,7 @@ unnamed4e83dc$Lazer$Dart.$lookupRTT = function(typeArgs, named){
 ;
 unnamed4e83dc$Lazer$Dart.$Constructor = function(board, x, y, width, height, jean){
   htmld071c1$document$getter().on$getter().mouseDown$getter().add$named(1, $noargs, $bind(unnamed4e83dc$Lazer$Dart.prototype.onMouseDown$named, unnamed4e83dc$Lazer$Dart.prototype.onMouseDown$named_$lookupRTT, this));
+  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Lazer$Dart.prototype.draw$named, unnamed4e83dc$Lazer$Dart.prototype.draw$named_$lookupRTT, this), 8);
 }
 ;
 unnamed4e83dc$Lazer$Dart.$Initializer = function(board, x, y, width, height, jean){
@@ -60182,7 +60204,6 @@ unnamed4e83dc$Lazer$Dart.prototype.onMouseDown$member = function(event2){
   var tmp$1, tmp$0;
   this.x$setter(tmp$0 = ADD$operator(event2.offsetX$getter(), 25)) , tmp$0;
   this.y$setter(tmp$1 = SUB$operator(event2.offsetY$getter(), 50)) , tmp$1;
-  htmld071c1$document$getter().window$getter().setInterval$named(2, $noargs, $bind(unnamed4e83dc$Lazer$Dart.prototype.drawLazer$named, unnamed4e83dc$Lazer$Dart.prototype.drawLazer$named_$lookupRTT, this), 15);
 }
 ;
 unnamed4e83dc$Lazer$Dart.prototype.onMouseDown$named = function($n, $o, event2){
@@ -60195,7 +60216,7 @@ unnamed4e83dc$Lazer$Dart.prototype.onMouseDown$named_$lookupRTT = function(){
   return RTT.createFunction([htmld071c1$MouseEvent$Dart.$lookupRTT()], RTT.dynamicType.$lookupRTT());
 }
 ;
-unnamed4e83dc$Lazer$Dart.prototype.drawLazer$member = function(){
+unnamed4e83dc$Lazer$Dart.prototype.draw$member = function(){
   var tmp$1, tmp$2, tmp$3, tmp$0;
   tmp$0 = this.y$getter() , (this.y$setter(tmp$1 = SUB$operator(tmp$0, 1)) , tmp$1 , tmp$0);
   this.board$getter().context$getter().beginPath$named(0, $noargs);
@@ -60208,13 +60229,13 @@ unnamed4e83dc$Lazer$Dart.prototype.drawLazer$member = function(){
   }
 }
 ;
-unnamed4e83dc$Lazer$Dart.prototype.drawLazer$named = function($n, $o){
+unnamed4e83dc$Lazer$Dart.prototype.draw$named = function($n, $o){
   if ($o.count || $n != 0)
     $nsme();
-  return unnamed4e83dc$Lazer$Dart.prototype.drawLazer$member.call(this);
+  return unnamed4e83dc$Lazer$Dart.prototype.draw$member.call(this);
 }
 ;
-unnamed4e83dc$Lazer$Dart.prototype.drawLazer$named_$lookupRTT = function(){
+unnamed4e83dc$Lazer$Dart.prototype.draw$named_$lookupRTT = function(){
   return RTT.createFunction(null, RTT.dynamicType.$lookupRTT());
 }
 ;
