@@ -13,6 +13,9 @@ class Board {
   Cloud cloud6;
   Plane plane;
   Jean jean;
+  Jean jean1;
+  Jean jean2;
+  Jean jean3;
   Lazer lazer;
   
   CanvasRenderingContext2D context;
@@ -48,15 +51,17 @@ class Board {
   }
   
   Plane createPlane() {
-    return new Plane(this, 350, 100, 50, 50);
+    return new Plane(this, 350, 100, 70, 70);
   }
   
   Lazer createLazer() {
-    return new Lazer(this, 20, 20, 3, 50, jean);  
+    return new Lazer(this, 20, 20, 3, 50, jean1, jean2, jean3);  
   }
   
   Jean createJean() {
-    return new Jean(this, 100, 100, 80, 80);
+    jean1 = new Jean(this, 100, 100, 80, 80);
+    jean2 = new Jean(this, 600, -293, 80, 80);
+    jean3 = new Jean(this, 300, -90, 80, 80);
   }
   
   void drawClouds() {
@@ -68,11 +73,17 @@ class Board {
     cloud6.draw();
   }
   
+  void drawJeans() {
+    jean1.draw();
+    jean2.draw();
+    jean3.draw();
+  }
+  
   void redraw() {
     clear();
     drawClouds();
     plane.draw();
-    jean.draw();
+    drawJeans();
     lazer.draw();
   }
   
