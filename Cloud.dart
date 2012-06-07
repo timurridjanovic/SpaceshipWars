@@ -17,7 +17,7 @@ class Cloud {
   }
   
   void move() {
-    y = y + 2;
+    y++;
     random = (Math.random() * 900).toInt();
   
     if (y >= board.height) {

@@ -7,13 +7,14 @@ Board board;
   int width;
   int height;
   int random2;
+  Plane plane;
   
   bool reappear = true;
   bool visible = true;
   ImageElement imageData3;
   ImageElement imageData4;
   
-  Jean(this.board, this.x, this.y, this.width, this.height) {
+  Jean(this.board, this.x, this.y, this.width, this.height, this.plane) {
     imageData3 = document.query('#jean');
     imageData4 = document.query('#explosion');
     document.window.setInterval(move, 4);
@@ -48,6 +49,10 @@ Board board;
     }
     board.context.closePath();
     board.context.stroke();
+    
+    if (x > plane.x && x < plane.x + plane.width && y > plane.y && y < plane.y + plane.height) {
+      plane.hit = true;
+    }
   }
   
 }

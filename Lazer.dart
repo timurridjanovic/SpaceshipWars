@@ -6,12 +6,12 @@ class Lazer {
   int y;
   int width;
   int height;
-  bool hit = true;
   Jean jean1;
   Jean jean2;
   Jean jean3;
+  Plane plane;
   
-  Lazer(this.board, this.x, this.y, this.width, this.height, this.jean1, this.jean2, this.jean3) {
+  Lazer(this.board, this.x, this.y, this.width, this.height, this.jean1, this.jean2, this.jean3, this.plane) {
     document.on.mouseDown.add(onMouseDown);
     document.window.setInterval(draw, 8);
   }
@@ -19,6 +19,7 @@ class Lazer {
   void onMouseDown(MouseEvent event2) {
     x = event2.offsetX;
     y = event2.offsetY - 80; 
+    plane.regeneration = true;
   }
   
   void draw() {

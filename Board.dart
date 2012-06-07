@@ -55,13 +55,13 @@ class Board {
   }
   
   Lazer createLazer() {
-    return new Lazer(this, 20, 20, 3, 50, jean1, jean2, jean3);  
+    return new Lazer(this, 20, 20, 3, 50, jean1, jean2, jean3, plane);  
   }
   
   Jean createJean() {
-    jean1 = new Jean(this, 100, 100, 80, 80);
-    jean2 = new Jean(this, 600, -293, 80, 80);
-    jean3 = new Jean(this, 300, -90, 80, 80);
+    jean1 = new Jean(this, 100, 100, 80, 80, plane);
+    jean2 = new Jean(this, 600, -293, 80, 80, plane);
+    jean3 = new Jean(this, 300, -90, 80, 80, plane);
   }
   
   void drawClouds() {
