@@ -2680,12 +2680,12 @@ Board.prototype.createPlane = function() {
   return new Plane(this, (350), (100), (70), (70));
 }
 Board.prototype.createLazer = function() {
-  return new Lazer(this, (20), (20), (3), (50), this.jean1, this.jean2, this.jean3);
+  return new Lazer(this, (20), (20), (3), (50), this.jean1, this.jean2, this.jean3, this.plane);
 }
 Board.prototype.createJean = function() {
-  this.jean1 = new Jean(this, (100), (100), (80), (80));
-  this.jean2 = new Jean(this, (600), (-293), (80), (80));
-  this.jean3 = new Jean(this, (300), (-90), (80), (80));
+  this.jean1 = new Jean(this, (100), (100), (80), (80), this.plane);
+  this.jean2 = new Jean(this, (600), (-293), (80), (80), this.plane);
+  this.jean3 = new Jean(this, (300), (-90), (80), (80), this.plane);
 }
 Board.prototype.drawClouds = function() {
   this.cloud1.draw();
@@ -2715,6 +2715,8 @@ Board.prototype.clear$_ = function() {
   this.border();
 }
 function Plane(board, x, y, width, height) {
+  this.hit = false;
+  this.regeneration = false;
   this.board = board;
   this.x = x;
   this.y = y;
@@ -2722,13 +2724,22 @@ function Plane(board, x, y, width, height) {
   this.height = height;
   get$$document().get$on().get$mouseMove().add($wrap_call$1(this.get$onMouseMove()), false);
   this.image = get$$document().query("#spaceship");
+  this.explosionimage = get$$document().query("#explosion");
   this.draw();
 }
 Plane.prototype.draw = function() {
   this.board.context.beginPath();
-  this.board.context.drawImage(this.image, this.x, this.y, this.width, this.height);
-  this.board.context.closePath();
-  this.board.context.stroke();
+  if (this.hit) {
+    this.board.context.drawImage(this.explosionimage, this.x, this.y, this.width, this.height);
+  }
+  else {
+    this.board.context.drawImage(this.image, this.x, this.y, this.width, this.height);
+    this.board.context.closePath();
+    this.board.context.stroke();
+  }
+  if (this.regeneration) {
+    this.hit = false;
+  }
 }
 Plane.prototype.onMouseMove = function(event) {
   this.x = event.offsetX - (35);
@@ -2737,7 +2748,7 @@ Plane.prototype.onMouseMove = function(event) {
 Plane.prototype.get$onMouseMove = function() {
   return this.onMouseMove.bind(this);
 }
-function Lazer(board, x, y, width, height, jean1, jean2, jean3) {
+function Lazer(board, x, y, width, height, jean1, jean2, jean3, plane) {
   this.board = board;
   this.x = x;
   this.y = y;
@@ -2746,12 +2757,14 @@ function Lazer(board, x, y, width, height, jean1, jean2, jean3) {
   this.jean1 = jean1;
   this.jean2 = jean2;
   this.jean3 = jean3;
+  this.plane = plane;
   get$$document().get$on().get$mouseDown().add($wrap_call$1(this.get$onMouseDown()), false);
   get$$document().get$window().setInterval($wrap_call$0(this.get$draw()), (8));
 }
 Lazer.prototype.onMouseDown = function(event2) {
   this.x = event2.offsetX;
   this.y = event2.offsetY - (80);
+  this.plane.regeneration = true;
 }
 Lazer.prototype.get$onMouseDown = function() {
   return this.onMouseDown.bind(this);
@@ -2811,7 +2824,7 @@ Cloud.prototype.draw = function() {
   this.board.context.closePath();
   this.board.context.stroke();
 }
-function Jean(board, x, y, width, height) {
+function Jean(board, x, y, width, height, plane) {
   this.reappear = true;
   this.visible = true;
   this.board = board;
@@ -2819,6 +2832,7 @@ function Jean(board, x, y, width, height) {
   this.y = y;
   this.width = width;
   this.height = height;
+  this.plane = plane;
   this.imageData3 = get$$document().query("#jean");
   this.imageData4 = get$$document().query("#explosion");
   get$$document().get$window().setInterval($wrap_call$0(this.get$move()), (4));
@@ -2853,6 +2867,9 @@ Jean.prototype.draw = function() {
   }
   this.board.context.closePath();
   this.board.context.stroke();
+  if (this.x > this.plane.x && this.x < this.plane.x + this.plane.width && this.y > this.plane.y && this.y < this.plane.y + this.plane.height) {
+    this.plane.hit = true;
+  }
 }
 function main() {
   var canvas = get$$document().query("#canvas");
